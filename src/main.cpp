@@ -16,9 +16,9 @@
 
 int INF = std::numeric_limits<int>::max();
 
-#include "matplotlibcpp.h"
+//#include "matplotlibcpp.h"
 
-namespace plt = matplotlibcpp;
+//namespace plt = matplotlibcpp;
 
 //-------------------------------------------------
 
@@ -179,6 +179,7 @@ void printGoalPath(std::vector<int> obsX1, std::vector<int> obsY1, std::vector<i
         y_knn.push_back(b.y);
     }
 
+    /*
     plt::figure_size(800, 800);
 
     plt::plot(obsX1, obsY1, "red");
@@ -197,6 +198,7 @@ void printGoalPath(std::vector<int> obsX1, std::vector<int> obsY1, std::vector<i
     plt::ylim(-1, 21);
 
     plt::show();
+    */
 }
 //-------------------------------------------------
 
