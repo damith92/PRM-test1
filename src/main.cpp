@@ -1,6 +1,4 @@
-// Markus Buchholz
 
-//// g++ 3D_line_for_RRT.cpp -o t -I/usr/include/python3.8 -lpython3.8
 
 #include <iostream>
 #include <vector>
@@ -16,32 +14,28 @@
 
 int INF = std::numeric_limits<int>::max();
 
-//#include "matplotlibcpp.h"
 
-//namespace plt = matplotlibcpp;
-
-//-------------------------------------------------
 
 // def of obstastacle
-// obstacles for visualisation
-std::vector<int> obsX1{3, 7, 7, 3, 3};
-std::vector<int> obsY1{3, 3, 10, 10, 3};
 
-std::vector<int> obsX2{11, 15, 15, 11, 11};
-std::vector<int> obsY2{8, 8, 17, 17, 8};
+std::vector<int> obsX1{1, 5, 3,  1};
+std::vector<int> obsY1{2, 4, 1,  2};
+
+std::vector<int> obsX2{12, 13, 16,  12};
+std::vector<int> obsY2{10, 9, 15,  10};
 
 // data
 
-int NODES = 140; // 50;
-float RADIUS = 3.5;
-float startX = 1.0; // 5.0;
-float startY = 1.0; // 12.5;
+int NODES = 500; 
+float RADIUS = 5;
+float startX = 5.0; 
+float startY = 1.0; 
 int startId = 0;
-float goalX = 18.0; // 15.0;
-float goalY = 14.0; // 5.0;
+float goalX = 18.0; 
+float goalY = 14.0; 
 int goalId = NODES;
 
-//-------------------------------------------------
+
 
 struct Node
 {
@@ -179,26 +173,7 @@ void printGoalPath(std::vector<int> obsX1, std::vector<int> obsY1, std::vector<i
         y_knn.push_back(b.y);
     }
 
-    /*
-    plt::figure_size(800, 800);
-
-    plt::plot(obsX1, obsY1, "red");
-    plt::plot(obsX2, obsY2, "red");
-    plt::plot(optX, optY, "darkblue");
-
-    // plt::plot(x_knn, y_knn, "blue");
-
-    //  plt::plot({2,12},{ 5, 15}, "darkblue");
-    //   plt::plot({2, 12, 2, 18 ,1,3,1,14}, {5, 15, 5, 18,1,13,1,14}, "darkblue");
-    //   plt::plot({1,3,1,14}, {1,13,1,14}, "red");
-    plt::scatter(nodeX, nodeY);
-    plt::xlabel("xx");
-    plt::ylabel("yy");
-    plt::xlim(-1, 21);
-    plt::ylim(-1, 21);
-
-    plt::show();
-    */
+    
 }
 //-------------------------------------------------
 
@@ -206,11 +181,7 @@ bool checkCollisonWithObs(Node a, Node b, std::vector<int> obsX1, std::vector<in
 {
 
     bool collision = false;
-    // Node p1, p2;
-    // p1.x = a.x;
-    // p1.y = a.y;
-    // p2.x = b.x;
-    // p2.y = b.y;
+    
 
     for (int ii = 0; ii < obsX1.size() - 1; ii++)
     {
